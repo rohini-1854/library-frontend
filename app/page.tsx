@@ -157,9 +157,9 @@ export default function Home() {
                <div className="h-[400px] bg-zinc-100 relative group">
                   <div className="absolute inset-0 z-10 cursor-pointer" onClick={() => window.open('https://www.google.com/maps/search/?api=1&query=District+Central+Library,Tirunelveli', '_blank')} />
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3943.834604924765!2d77.72895287586523!3d8.711956593503254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ab06e756080b03d%3A0x6b77c688e7d7a5b3!2sDistrict%20Central%20Library!5e0!3m2!1sen!2sin!4v1711440000000!5m2!1sen!2sin"
+                    src="https://maps.google.com/maps?q=District%20Central%20Library%20Tirunelveli&t=&z=15&ie=UTF8&iwloc=&output=embed"
                     width="100%" height="100%" style={{ border: 0 }} allowFullScreen={true} loading="lazy"
-                    className="grayscale-[0.4] group-hover:grayscale-0 transition-grayscale duration-700 pointer-events-none"
+                    className="transition-all duration-700"
                   />
                </div>
                <div className="p-12 space-y-10">
