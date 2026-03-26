@@ -1,26 +1,127 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+    /* Official Government Palette */
+    --primary: #3F51B5; /* Royal Blue */
+    --primary-dark: #1A237E; /* Navy Blue */
+    --secondary: #800000; /* Maroon Accent */
+    --accent: #F39C12; /* Official Orange */
+    --success: #2E7D32; /* Forest Green */
+    --background: #FFFFFF;
+    --foreground: #212121;
+    --muted: #F5F5F5;
+    --border: #E0E0E0;
+    --radius: 0.25rem; /* Sharper corners for professional look */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* ── Government Portal Custom Classes ───────────────────────────────────── */
+/* Defined OUTSIDE @layer so they have higher specificity than Tailwind utils */
+
+/* Official Header Banner */
+.gov-banner {
+    background: linear-gradient(135deg, #1A237E 0%, #3F51B5 100%) !important;
+    border-bottom: 4px solid #F39C12 !important;
+    padding: 1rem 2rem;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Professional Navigation Bar */
+.gov-nav {
+    background: #3F51B5;
+    color: white;
+    height: 48px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.gov-nav-link {
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    padding: 1rem 1.5rem;
+    display: inline-block;
+    transition: background 0.2s;
+}
+
+.gov-nav-link:hover, .gov-nav-link.active {
+    background: rgba(255,255,255,0.15);
+}
+
+/* Government-style Card */
+.gov-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--primary);
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border-radius: var(--radius);
+}
+
+.gov-card-maroon { border-top-color: var(--secondary); }
+.gov-card-green  { border-top-color: var(--success); }
+.gov-card-orange { border-top-color: var(--accent); }
+
+/* Official Buttons */
+.gov-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    border-radius: var(--radius);
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+}
+
+.gov-btn-primary              { background: var(--primary); color: white; }
+.gov-btn-primary:hover        { background: var(--primary-dark); box-shadow: 0 2px 8px rgba(63,81,181,0.4); }
+.gov-btn-secondary            { background: white; color: var(--primary); border: 2px solid var(--primary); }
+.gov-btn-secondary:hover      { background: var(--muted); }
+.gov-btn-orange               { background: var(--accent); color: white; }
+
+/* Section Headings */
+.gov-heading {
+    color: var(--primary-dark);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Tamil Typography Support */
+.font-tamil {
+    font-family: 'Latha', 'Lohit Tamil', sans-serif;
+    line-height: 1.8;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--muted); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary-dark); }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-gov {
+    animation: fadeIn 0.4s ease-out forwards;
 }
